@@ -1,19 +1,21 @@
 import React, { useState } from 'react'
 
-function TodoForm() {
+function TodoForm(props) {
     const [input, setInput] = useState('')
+    
+    const handleChange = e => {
+        setInput(e.target.value)
+    };
 
     const handleSubmit = e => {
         e.preventDefault(); 
-        // props.onSubmit({
-        //     id: Date.now(),
-        //     text: input
-        // })
+        props.onSubmit({
+            id: Date.now(),
+            text: input
+        });
+
         setInput('')
-    }
-    const handleChange = e => {
-        setInput(e.target.value)
-    }
+    };
 
     return (
         <div>
